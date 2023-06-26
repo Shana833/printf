@@ -9,8 +9,14 @@
  * @format: The format string(format specifier)
  * Return: number of characters printed
  */
+
 int _printf(const char *format, ...)
 {
+	if (format == NULL)
+	{
+		return (-1);
+	}
+
 	formats format_types[] = {
 		{"c", print_char},
 		{"s", print_string},
@@ -24,6 +30,11 @@ int _printf(const char *format, ...)
 	i = 0;
 	while (format != NULL && format[i] != '\0')
 	{
+		if (format[i] == ' ' || format[i] == '\0')
+		{
+			write(1, "%", 1);
+			printed++;
+		}
 		if (format[i] != '%')
 		{
 			write(1, &format[i], 1);

@@ -3,13 +3,11 @@
 #include <unistd.h>
 #include <string.h>
 #include "main.h"
-
 /**
  * _printf - printf function
  * @format: The format string(format specifier)
  * Return: number of characters printed
  */
-
 int _printf(const char *format, ...)
 {
 	formats format_types[] = {
@@ -40,10 +38,6 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			if (format[i] == ' ' || format[i] == '\0')
-			{
-				printed += write(1, "%", 1);
-			}
 			for (j = 0; j < len_of_struct; j++)
 			{
 				if (format[i] == *(format_types[j].type))

@@ -15,6 +15,7 @@ int _printf(const char *format, ...)
 	formats format_types[] = {
 		{"c", print_char},
 		{"s", print_string},
+		{"%", print_percent},
 		{NULL, NULL}
 	};
 	va_list list;

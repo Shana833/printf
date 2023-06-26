@@ -45,3 +45,16 @@ int print_string(va_list list)
 
 	return (write(1, string, len));
 }
+
+/**
+ * print_percent - prints the '%'
+ *@list: list of arguments
+ *
+ * Return: '%' characters
+ */
+
+ int print_percent(va_list list)
+{
+	char percent = '%';
+	return (write(1, &percent, sizeof(char)));
+}

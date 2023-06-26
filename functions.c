@@ -50,7 +50,7 @@ int print_string(va_list list)
  * print_percent - prints the '%'
  *@list: list of arguments
  *
- * Return: '%' characters
+ * Return: number of characters printed
  */
 
  int print_percent(va_list list)

@@ -12,11 +12,6 @@
 
 int _printf(const char *format, ...)
 {
-	if (format == NULL)
-	{
-		return (-1);
-	}
-
 	formats format_types[] = {
 		{"c", print_char},
 		{"s", print_string},
@@ -24,6 +19,11 @@ int _printf(const char *format, ...)
 	};
 	va_list list;
 	int i, j, len_of_struct, printed = 0;
+
+	if (format == NULL)
+	{
+		return (-1);
+	}
 
 	va_start(list, format);
 	len_of_struct = sizeof(format_types) / sizeof(formats);

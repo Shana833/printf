@@ -24,17 +24,11 @@ int _printf(const char *format, ...)
 	{
 		return (-1);
 	}
-
 	va_start(list, format);
 	len_of_struct = sizeof(format_types) / sizeof(formats);
 	i = 0;
 	while (format != NULL && format[i] != '\0')
 	{
-		if (format[i] == ' ' || format[i] == '\0')
-		{
-			write(1, "%", 1);
-			printed++;
-		}
 		if (format[i] != '%')
 		{
 			write(1, &format[i], 1);
@@ -46,6 +40,10 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
+			if (format[i] == ' ' || format[i] == '\0')
+			{
+				printed += write(1, "%", 1);
+			}
 			for (j = 0; j < len_of_struct; j++)
 			{
 				if (format[i] == *(format_types[j].type))
@@ -60,6 +58,5 @@ int _printf(const char *format, ...)
 		i++;
 	}
 	va_end(list);
-
 	return (printed);
 }

@@ -31,8 +31,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			write(1, &format[i], 1);
-			printed++;
+			printed += write(1, &format[i], 1);
 		}
 		j = 0;
 		while (format_types[j].type != NULL)

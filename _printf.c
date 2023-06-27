@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 			i++;
 			if (format[i] == '\0')
 			{
-				retrun (-1);
+				return(-1);
 			}
 			if (format[i] == ' ')
 				printed += print_percent(list); /*added to handle _printf("%");*/

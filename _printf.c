@@ -13,6 +13,8 @@ int _printf(const char *format, ...)
 	formats format_types[] = {
 		{"c", print_char},
 		{"s", print_string},
+		{"d", print_int},
+		{"i", print_int},
 		{"%", print_percent},
 		{NULL, NULL}
 	};

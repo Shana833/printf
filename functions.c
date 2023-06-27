@@ -62,3 +62,21 @@ int print_percent(va_list list __attribute__((unused)))
 
 	return (write(1, &percent, sizeof(char)));
 }
+
+/**
+ * print_int - prints an integer
+ * @list: list of arguments
+ *
+ * Return: number of characters printed
+ */
+
+int print_int(va_list list)
+{
+	int num, length;
+	char str[20];
+
+	num = va_arg(list, int);
+	length = itos(num, str);
+
+	return (write(1, str, length));
+}

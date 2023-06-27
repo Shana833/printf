@@ -56,5 +56,7 @@ int print_string(va_list list)
  int print_percent(va_list list)
 {
 	char percent = '%';
+	percent=va_arg(list, int);
+
 	return (write(1, &percent, sizeof(char)));
 }

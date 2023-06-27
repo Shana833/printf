@@ -53,9 +53,11 @@ int print_string(va_list list)
  * Return: number of characters printed
  */
 
-int print_percent(va_list list)
+int print_percent(va_list list __attribute__((unused)))
 {
-	char percent = '%';
+	char percent;
+
+	percent = '%';
 	/*percent=va_arg(list, int); - removed*/
 
 	return (write(1, &percent, sizeof(char)));

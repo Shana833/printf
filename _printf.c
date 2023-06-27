@@ -20,24 +20,24 @@ int _printf(const char *format, ...)
 	int i, j, len_of_struct, printed = 0;
 
 	if (format == NULL)
-	{
 		return (-1);
-	}
+
 	va_start(list, format);
-	len_of_struct = sizeof(format_types) / sizeof(formats);
+	len_of_struct = sizeof(format_types) / sizeof(formats) - 1;
 	i = 0;
 	while (format != NULL && format[i] != '\0')
 	{
 		if (format[i] != '%')
-		{
 			printed += write(1, &format[i], 1);
-		}
+
 		j = 0;
 		while (format_types[j].type != NULL)
 		{
 		if (format[i] == '%')
 		{
 			i++;
+			if (format[i] == ' ' || format[i] == '\0')
+				printed += print_percent(list); /*added to handle _printf("%");*/
 			for (j = 0; j < len_of_struct; j++)
 			{
 				if (format[i] == *(format_types[j].type))
@@ -46,11 +46,8 @@ int _printf(const char *format, ...)
 					break;
 				}
 			}
-		}
-		j++;
-		}
-		i++;
-	}
-	va_end(list);
+		} j++;
+		} i++;
+	} va_end(list);
 	return (printed);
 }

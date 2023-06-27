@@ -35,7 +35,7 @@ int print_string(va_list list)
 
 	if (string == NULL)
 	{
-		string = "(nil)";
+		string = "(null)";
 	}
 
 	while (string[len] != '\0')
@@ -53,10 +53,10 @@ int print_string(va_list list)
  * Return: number of characters printed
  */
 
- int print_percent(va_list list)
+int print_percent(va_list list)
 {
 	char percent = '%';
-	percent=va_arg(list, int);
+	/*percent=va_arg(list, int); - removed*/
 
 	return (write(1, &percent, sizeof(char)));
 }

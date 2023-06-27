@@ -37,11 +37,10 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			if (format[i] == '\0')
-			{
 				return (-1);
-			}
-			if (format[i] == ' ')
-				printed += print_percent(list); /*added to handle _printf("%");*/
+
+			if ((format[i] >= 7 && format[i] <= 13) || format[i] == 32)
+				printed += print_percent(list);
 			for (j = 0; j < len_of_struct; j++)
 			{
 				if (format[i] == *(format_types[j].type))

@@ -11,12 +11,8 @@
 int _printf(const char *format, ...)
 {
 	formats format_types[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{"d", print_int},
-		{"i", print_int},
-		{"%", print_percent},
-		{NULL, NULL}
+		{"c", print_char}, {"s", print_string},
+		{"d", print_int}, {"i", print_int}, {"%", print_percent}, {NULL, NULL}
 	};
 	va_list list;
 	int i, j, len_of_struct, printed = 0;
@@ -46,8 +42,7 @@ int _printf(const char *format, ...)
 			for (j = 0; j < len_of_struct; j++)
 			{
 				if (format[i] == *(format_types[j].type))
-				{
-					printed += (format_types[j].func)(list);
+				{	printed += (format_types[j].func)(list);
 					break;
 				}
 			}
